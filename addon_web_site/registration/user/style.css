@@ -1,0 +1,269 @@
+@import url(https://fonts.googleapis.com/css?family=Space+Mono:400,700);
+@font-face {
+    font-family: Unecoin; /* Имя шрифта */
+    src: url(../../assets/fonts/font_bolt.ttf); /* Путь к файлу со шрифтом */
+}
+
+/* === Quick Settings === */
+:root {
+	/* Colors */
+	--primary: #3F46DC;
+	--secondary: #FFFFFF;
+	--background: #F6F7FB;
+	--text: #3C3C69;
+	--shadow: rgba(37,40,122,.09);
+	
+	/* Type */
+	--font: 'Unecoin';
+	
+	/* Styles */
+	--corner-radius: 10px;
+	--stroke-thickness: 4px;
+}
+
+/* === Global === */
+
+*, *:focus {
+	font-family: var(--font);
+	outline: none;
+}
+
+body {
+	background: var(--background);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+@media (max-width: 1200px) { 
+    input{
+		width: 85%;
+		padding: 0 5px;
+	}
+	.step_3{
+		content: 'Последнее - фото.';
+	}
+}
+
+.container {
+	width: 480px;
+	padding: 0 60px 0 60px;
+	overflow: hidden;
+	position: relative;
+}
+
+#form-wrap{
+	transition: all 800ms ease-in-out
+}
+
+.completed, .completed h1 {
+	text-align: center;
+	margin:0;
+}
+
+img {
+	max-height: 100px;
+}
+
+/* === Questions === */
+
+.question {
+	display: grid;
+	grid-template-columns: 1fr 60px;
+	grid-template-rows: repeat(3, 60px);
+	grid-column-gap: 20px;
+	grid-row-gap: 0px;
+	transition: all 250ms ease-in-out;
+}
+
+h1 {
+	font-weight: 400;
+	font-size: 22px;
+	grid-area: 1 / 1 / 2 / 3;
+}
+
+h1.animation {
+	animation: input-animation 1200ms ease-in-out;
+}
+
+input, .button {
+	background: linear-gradient(to right, var(--secondary) 0%, var(--secondary) 33.2%, var(--primary) 33.3%, var(--primary) 66.5%, var(--secondary) 66.6%, var(--secondary) 100% );
+	background-size: 302% 100%;
+	background-position: 100% 100%;
+	border-radius: var(--corner-radius);
+	box-shadow: 0px 20px 40px 0 var(--shadow);
+	border: none;
+}
+
+input:hover, .button:hover {
+	box-shadow: 0px 10px 20px 0 var(--shadow), inset 0px 0px 0px var(--stroke-thickness) var(--primary);
+}
+
+input:active, input:focus, .button:active, .button:focus {
+	background-position: 49.75% 100%;
+	color: var(--secondary);
+	box-shadow: 0px 0px 0px 0 var(--shadow);
+}
+
+input {
+	color: var(--text);
+	font-size: 18px;
+	padding: 0 20px;
+	grid-area: 2 / 1 / 3 / 2;
+	border-radius: var(--corner-radius);
+	box-shadow: 0px 20px 40px 0 var(--shadow);
+	transition: all 200ms ease-in-out;
+}
+
+input.animation {
+	animation: input-animation 1000ms ease-in-out;
+}
+
+.button {
+	grid-area: 2 / 2 / 3 / 3;
+	transition: all 150ms ease;
+	cursor: pointer;
+}
+
+.button:after {
+	content:'➜';
+	font-size: 24px;
+	color:var(--primary);
+}
+
+.button:focus:after {
+	color:var(--secondary);
+}
+
+.button.animation {
+	animation: button-animation 1000ms ease 200ms;
+}
+
+p {
+	grid-area: 3 / 1 / 4 / 3;
+	opacity: .25;
+}
+
+p.animation {
+	animation: index-animation 1100ms ease;
+}
+
+@keyframes h1-animation {
+  0% {transform: translateY(0);}
+	20% {transform: translateY(20px);}
+	60% {transform: translateY(-10px);}
+  100% {transform: translateY(0px);}
+}
+
+@keyframes input-animation {
+  0% {transform: translateY(0);}
+	20% {transform: translateY(20px);}
+	60% {transform: translateY(-20px);}
+  100% {transform: translateY(0px);}
+}
+
+@keyframes button-animation {
+  0% {transform: translateY(0);}
+	20% {transform: translateY(20px);}
+	60% {transform: translateY(-20px);}
+  100% {transform: translateY(0px);}
+}
+
+@keyframes index-animation {
+  0% {opacity: .25}
+	20% {opacity: 0}
+	80% {opacity: 0;}
+  100% {opacity: .25}
+}
+
+.file_upload{
+   opacity: 0;
+}
+
+.buttons {
+  width: 20px;
+  height: 30px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 24px;
+  background: #5d5bff;
+  border: none;
+  border-radius: 6px;
+  font-family: -apple-system, sans-serif;
+  font-size: 20px;
+  color: #e6e6ff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 20px;
+  font-weight: 300;
+  overflow: hidden;
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.buttons:hover {
+	background: #c955ff;
+
+}
+
+.arrow-6 {
+    margin: 20px;
+}
+.arrow-6 svg {
+    width: 30px;
+    height: auto;
+    margin: 0 2rem;
+    cursor: pointer;
+    overflow: visible;
+}
+.buttons svg polygon, 
+.buttons svg path {
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    fill: #ffffff;
+}
+.buttons svg:hover polygon, 
+.buttons svg:hover path {
+    transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+    fill: rgb(255, 230, 0);
+}
+.buttons svg:hover .arrow-6-pl {
+    animation: arrow-6-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+.buttons svg:hover .arrow-6-pl-fixed {
+    animation: arrow-6-fixed-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+ 
+ /*-----------------------------
+  logoName
+-----------------------------*/
+.logoName {
+  color:white;
+}
+@keyframes arrow-6-anim {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    5% {
+        transform: translateX(-0.1rem);
+    }
+    100% {
+        transform: translateX(1rem);
+        opacity: 0;
+    }
+}
+@keyframes arrow-6-fixed-anim {
+    5% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}

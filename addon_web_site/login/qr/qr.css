@@ -1,0 +1,125 @@
+html body{
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+canvas {
+    display: none;
+}
+hr {
+    margin-top: 32px;
+}
+input[type="file"] {
+    display: block;
+    margin-bottom: 16px;
+}
+div {
+    margin-bottom: 16px;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.video {
+  z-index: -10;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.scanner-container {
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  @media (min-width: 600px) {
+    .scanner-container .scanner {
+        width: 30vw;
+        height: 30vw;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(#fff, #fff) left top, linear-gradient(#fff, #fff) left top, linear-gradient(#fff, #fff) right top, linear-gradient(#fff, #fff) right top, linear-gradient(#fff, #fff) left bottom, linear-gradient(#fff, #fff) left bottom, linear-gradient(#fff, #fff) right bottom, linear-gradient(#fff, #fff) right bottom;
+        background-repeat: no-repeat;
+        background-size: 2px 24px, 24px 2px;
+      }
+  }
+  @media (max-width: 600px) {
+    .scanner-container .scanner {
+        width: 40vw;
+        height: 40vw;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(#fff, #fff) left top, linear-gradient(#fff, #fff) left top, linear-gradient(#fff, #fff) right top, linear-gradient(#fff, #fff) right top, linear-gradient(#fff, #fff) left bottom, linear-gradient(#fff, #fff) left bottom, linear-gradient(#fff, #fff) right bottom, linear-gradient(#fff, #fff) right bottom;
+        background-repeat: no-repeat;
+        background-size: 2px 24px, 24px 2px;
+      }
+  }
+  .scanner-container .scanner:before {
+    content: "";
+    position: absolute;
+    width: 95%;
+    background: #00a001;
+    top: 2.5%;
+    left: 2.5%;
+    height: 5px;
+    border-radius: 100%;
+    box-shadow: 0 0 4px 0 green;
+    animation: scan ease-in-out 2s infinite;
+  }
+  @keyframes scan {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(30vw);
+      opacity: 0;
+    }
+  }
+
+  .logo{
+    color: #fff;
+    padding: 25px;
+  }
+
+  .logo_main_text{
+    color: #fff;
+    font-size: 24px;
+    margin: 0px;
+  }
+  
+  
+.buttom{
+    background-color: #b8924c ;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.buttom:hover{
+    background-color: #695631;
+}
+
+.btndown{
+    color: #fff;
+    z-index: 10;
+    display: inline;
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+}

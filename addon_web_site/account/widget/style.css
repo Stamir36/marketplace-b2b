@@ -1,0 +1,16 @@
+.cardImg{
+  max-height: 200px;
+  border-radius: 15px;
+  border: 2px solid rgb(180, 180, 180);
+  margin-bottom: 10px;
+  scale: 0.99;
+}
+
+.cardImg:hover{
+  border: 2px solid rgb(0, 119, 255);
+  cursor: pointer;
+  scale: 1;
+}
+html body{
+  overflow: inherit;
+}

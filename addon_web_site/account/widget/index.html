@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Widget Image - Unesell Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/app/store/assets/css/style.css">
+  <link rel="stylesheet" href="/app/store/assets/css/uikit.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css'>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/main/new_style.css" type="text/css" />
+</head>
+<body style="background: #fff; padding: 5px;">
+<!-- partial:index.partial.html -->
+<div 
+	x-data="searchImages()"
+	class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r"
+>
+	<div class="container mt-6">
+		<form 
+			 action="#"
+			 class="flex mb-8 m-auto max-w-md"
+		>
+
+			 <input 
+				  type="text"
+				  placeholder="Например: абстракция, кот, ..."
+				  class="border border-gray-300 text-gray-500 text-sm p-3 flex-grow mr-2 rounded shadow"
+				  x-model="searchValue"
+				  x-on:focus="resetField()"
+			 />
+
+			 <button onclick="setTimeout(setupUrljQuery, 500);"
+				  type="submit"
+				  class="inline-flex items-center px-5 py-3 py-1 font-medium bg-gray-800 hover:bg-gray-900 duration-200 text-white rounded shadow"
+				  @click.prevent="getImages()"
+			 >
+				  Поиск
+			 </button>
+		</form>
+
+		<div class="md:grid md:grid-cols-3 md:gap-4 md:auto-rows-auto">
+			<template x-for="(image, index) in images" :key="index">
+
+				<div class="product" :data-url="image.urls.regular">
+					<div class="product_info">
+						<div class="product-image">
+							<a style="z-index: 1; position: relative;">   
+								<img 
+									:src="image.urls.small" 
+									:alt="image.alt_description"
+								/>
+							</a>
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display: block;position: absolute;top: 20px;left: 35%;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">            
+								<circle cx="50" cy="50" r="30" stroke="#46dff0" stroke-width="10" fill="none"></circle>
+								<circle cx="50" cy="50" r="30" stroke="#e90c59" stroke-width="8" stroke-linecap="round" fill="none">
+								<animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;180 50 50;720 50 50" keyTimes="0;0.5;1"></animateTransform>
+								<animate attributeName="stroke-dasharray" repeatCount="indefinite" dur="1s" values="18.84955592153876 169.64600329384882;94.2477796076938 94.24777960769377;18.84955592153876 169.64600329384882" keyTimes="0;0.5;1"></animate>
+								</circle>
+							</svg>
+						</div>
+						<div class="produc_info">
+							<div class="product-by">
+								<a>Теги</a>
+							</div>
+							<div class="product-title">
+								<a x-text="image.alt_description"></a>
+							</div>
+							<div class="product-price" x-text="image.user.name"></div>
+						</div>
+					</div>
+				</div>
+			</template>
+		</div>
+	</div>
+</div>
+<script src="/app/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script>
+	const searchImages = () => {
+		 return {
+			  images: [],
+			  searchValue: 'Примеры: coffee, people, ...',
+			  getImages() {
+					const
+						API_URL = 'https://api.unsplash.com/',
+						ACCESS_KEY = 'NaHFk6fEWYCWjF10KF4L9EiplttQNKmTUu6rcLJ9uLc', // Please don't abuse with this one ! ^^
+						searchValue = this.searchValue;
+
+					fetch(`${API_URL}search/photos?page=1&query=${searchValue}&client_id=${ACCESS_KEY}`)
+						 .then(response => response.json())
+						 .then(data => {
+							  this.images = data.results;
+						 });
+			  },
+			  resetField() {
+					this.searchValue = '';
+			  }
+		 }
+	}
+</script>
+<!-- partial -->
+	
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js'></script>
+  <script>
+	let setupurl = true;
+	function setupUrljQuery(){
+			if(setupurl){
+				$('.product').on('click', function(){
+				let url = $(this).closest('[data-url]').attr('data-url');
+				parent.AccountBackImgSetup(url);
+				setupurl = false;
+			});
+			console.log("setup");
+		}
+	}
+	
+  </script>
+</body>
+</html>
