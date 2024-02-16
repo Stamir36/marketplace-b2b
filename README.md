@@ -10,18 +10,18 @@ Language: Russian, Ukrainian, English<br><br>
 
 # 🚀 Getting started
 The project consists of marketplace and additional files.
-The "source" folder stores the diploma project of the marketplace that was developed. Import the file "store.sql" into the database and modify the configuration file "config.php" with the connection details and the level 3 domain.
-For authorization and messenger to work, place the "source" folder (renamed to "store") in the "addon_web_site/app/" folder and follow the "addon_web_site/Read_Me.txt" instructions.
+The "source" folder stores the marketplace that was developed. Import the file "store.sql" into the database and modify the configuration file "config.php" with the connection details and the level 3 domain.<br>
+For authorization and messenger to work, place the "source" folder (renamed to "store") in the "addon_web_site/app/" folder and follow the "addon_web_site/Read_Me.txt" instructions.<br>
 After that, you can run the project. <br>Live Demo Website: https://store.unesell.com/<br><br>
 
 # 🎨 Possibilities
--- Creation of a store and product.
--- View the product page.
--- Add to cart.
--- Placing an online order.
--- Create an order.
--- Orders page.
--- Switch language.
+- Creation of a store and product.<br>
+- View the product page.<br>
+- Add to cart.<br>
+- Placing an online order.<br>
+- Create an order.<br>
+- Orders page.<br>
+- Switch language.<br>
 
 # License and Author
 The source code of the program is open, distribution and modification is allowed only with the consent of the author.<br>
